@@ -1,0 +1,16 @@
+# Binaries
+bin/
+*.exe
+*.out
+*.test
+
+# IDE
+.idea/
+*.iml
+
+# Mac / Windows 临时文件
+.DS_Store
+Thumbs.db
+
+# Go modules
+vendor/
