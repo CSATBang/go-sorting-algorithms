@@ -5,8 +5,12 @@
 
 ## 算法列表
 - Bubble Sort
+- hill Sort
+- insert Sort
+- select Sort
 - Quick Sort
-- Merge Sort (计划中)
+- Merge Sort 
+- pile Sort (Planned) 计划中
 
 ## 快速运行
 ```bash
