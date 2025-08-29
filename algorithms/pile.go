@@ -10,7 +10,7 @@ package algorithms
 堆的操作(小根堆为例)：
 1.插入一个数				heap[++size]=x;up(size)
 2.求集合中的最小值			heap[1]
-3.删除最小值				heap[1]=heap[size] ;size--;down(1);  用整个堆的元素来覆盖堆顶的元素再把最后一个元素删除，然后down(1)一遍
+3.删除最小值				heap[1]=heap[size] ;size--;down(1);  用最后一个堆的元素来覆盖堆顶的元素再把最后一个元素删除，然后down(1)一遍
 4.删除任意一个元素			heap[k]=heap[size] ;size--;down(k);up(x); 与上同理
 5.修改任意一个元素			heap[k]=x;down(k);up(k);
 
