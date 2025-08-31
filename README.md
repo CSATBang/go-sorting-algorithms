@@ -10,7 +10,8 @@
 - select Sort
 - Quick Sort
 - Merge Sort 
-- pile Sort (Planned) 计划中
+- pile Sort 
+- 
 
 ## 快速运行
 ```bash
