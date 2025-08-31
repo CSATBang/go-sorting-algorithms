@@ -6,6 +6,7 @@ package algorithms
 
 如何手写一个小根堆
 堆的存储：用一个一维数组，根节点坐标设为从x=1开始 节点的左儿子index=2x,右儿子index=2x+1
+若下标0开始，则左儿子2x+1，右儿子 2x+2
 
 堆的操作(小根堆为例)：
 1.插入一个数				heap[++size]=x;up(size)
@@ -21,4 +22,59 @@ down(x){
 up(x){
 	节点往上调整
 }
+
+堆排序也就参考上面的down操作
+这里排序使用大根堆
 */
+
+func PileSort(arr []int) []int {
+	heapSize := len(arr)
+	//建立大根堆，因为大根堆有节点大于等于左右儿子的性质，根节点的值就是整个数据结构最大的
+	buildMaxHeap(arr, heapSize)
+	// 于是我们可以把根节点与最后一个节点互换，把最大值固定到数组末尾
+	// 经过多轮操作，数组会从前到后变为升序排列
+	for i := heapSize - 1; i > 0; i-- {
+		//根节点与最后一个节点互换
+		swap(arr, 0, i)
+		//范围缩小由于
+		heapSize--
+		//整个树下沉排序
+		down(arr, 0, heapSize)
+	}
+	return arr
+}
+
+func buildMaxHeap(arr []int, arrLen int) {
+	// 从最后一个非叶子节点开始进行建堆
+	// 如果下标从 0 开始，最后一个非叶子节点是 arrLen/2 - 1
+	// 如果下标从 1 开始，最后一个非叶子节点是 arrLen/2
+
+	for i := arrLen/2 - 1; i >= 0; i-- {
+		down(arr, i, arrLen)
+	}
+}
+
+// 下沉操作
+func down(arr []int, i, arrLen int) {
+	left := i*2 + 1
+	right := i*2 + 2
+	//largest是用来记录某节点与它的左右孩子的最大值
+	largest := i
+	// 若左儿子存在，且左儿子大于当前最大值节点，则更新 largest = 左儿子下标
+	if left < arrLen && arr[left] > arr[largest] {
+		largest = left
+	}
+	//若右儿子存在，且右儿子大于当前最大值节点，则更新 largest = 右儿子下标
+	if right < arrLen && arr[right] > arr[largest] {
+		largest = right
+	}
+	//largest存的是三个节点的最大的节点标号，若不等于i,说明这里根节点就不是最大值
+	if largest != i {
+		swap(arr, i, largest)
+		down(arr, largest, arrLen)
+	}
+}
+
+func swap(arr []int, i, j int) {
+	arr[i], arr[j] = arr[j], arr[i]
+}
