@@ -11,7 +11,9 @@
 - Quick Sort
 - Merge Sort 
 - pile Sort 
-- 
+- count Sort (计划中)
+- bucket Sort (计划中)
+- cardinal Sort (计划中)
 
 ## 快速运行
 ```bash
