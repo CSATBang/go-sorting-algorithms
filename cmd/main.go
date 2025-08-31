@@ -5,9 +5,6 @@ import (
 	"github.com/CSATBang/go-sorting-algorithms/algorithms"
 )
 
-func pileSort(a []int) {
-
-}
 func countSort(a []int) {
 
 }
@@ -24,12 +21,14 @@ func main() {
 	insertArr := append([]int(nil), arr...)
 	quickArr := append([]int(nil), arr...)
 	mergeArr := append([]int(nil), arr...)
+	heapSort := append([]int(nil), arr...)
 	fmt.Println("BubbleSort:", algorithms.BubbleSort(bubbleArr))
 	fmt.Println("HillSort:", algorithms.HillSort(hillArr))
 	fmt.Println("InsertSort:", algorithms.InsertSort(insertArr))
 	fmt.Println("QuickSort:", algorithms.QuickSort(quickArr, 0, len(quickArr)-1))
+
 	algorithms.MergeSort(mergeArr)
 	fmt.Println("MergeSort:", mergeArr)
+	fmt.Println("HeapSort:", algorithms.PileSort(heapSort))
 	fmt.Println("arr:", arr)
-
 }
